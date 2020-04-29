@@ -37,6 +37,14 @@ class Bee {
         return this._execute('balance', {coin});
     }
 
+    charge_boleto_create(array = {}) {
+        return this._execute('charge/boleto/create', array);
+    }
+
+    charge_client_create(array = {}) {
+        return this._execute('charge/client/create', array);
+    }
+
     coin_list() {
         return this._execute('coin/list');
     }
@@ -45,25 +53,10 @@ class Bee {
         return this._execute('coin/info', {coin});
     }
 
-    invoice_create(array = {}) {
-        return this._execute('invoice/create', array);
-    }
-
-    invoice_pay(array = {}) {
-        return this._execute('invoice/pay', array);
-    }
-
-    invoice_view(array = {}) {
-        return this._execute('invoice/view', array);
-    }
-
     transfer_create(array = {}) {
         return this._execute('transfer/create', array);
     }
 
-    user_info(username) {
-        return this._execute('user/info', {username});
-    }
 }
 
 module.exports = Bee
