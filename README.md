@@ -1,4 +1,4 @@
-## Bee SDK NodeJs
+## Bee SDK Node.Js
 
 É uma biblioteca desenvolvida para php com intuito de facilitar a conexão entre os desenvolvedores e a [Bee](https://bee.cash).    
 
@@ -8,7 +8,7 @@ Veja como é simples fazer uma transferência:
 
 **1: Inclua a biblioteca**
 ```javascript
-const Bee = require('./bee')
+const Bee = require('./src/bee')
 
 const bee = Bee('meu token')
 
