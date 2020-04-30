@@ -25,7 +25,7 @@ bee = Bee('seu-token')
 bee.transfer_create({
    username: 'usuario-destino', // Usuário da Bee Pagamentos
    amount: 100, // Valor a ser transferido
-   coin: 'brl', // Moeda que deseja transferir
+   coin: 'brl' // Moeda que deseja transferir
 }).then((response) {
     console.log(response)
 })
