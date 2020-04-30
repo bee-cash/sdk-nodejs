@@ -137,11 +137,15 @@ result | array | array com o saldo de todas as moedas disponíveis. |
 
 
 ```javascript
-bee.balance('btc')
+bee.balance('btc').then((response) {
+    console.log(response)
+})
 ```
 
 ```javascript
-bee.balance()
+bee.balance().then((response) {
+    console.log(response)
+})
 ```
 
 &#160;
@@ -165,7 +169,9 @@ result | array | array com todas as moedas disponíveis. |
 #### Exemplo:
 
 ```javascript
-bee.coin_list()
+bee.coin_list().then((response) {
+    console.log(response)
+})
 ```
 
 &#160;
@@ -191,7 +197,9 @@ result | array | array com os dados da moeda. |
 #### Exemplo:
 
 ```javascript
-bee.coin_info('btc')
+bee.coin_info('btc').then((response) {
+    console.log(response)
+})
 ```
 
 &#160;
@@ -234,6 +242,8 @@ bee.charge_boleto_create({
    client_id: 5,
    due_at: '2020-04-29',
    label: 'Cobrança referente a compra de tenis sport'
+}).then((response) {
+    console.log(response)
 })
 ```
 
@@ -282,6 +292,8 @@ bee.charge_client_create({
    phone: {
         number: '(12) 23456-7891'
    }
+}).then((response) {
+    console.log(response)
 })
 ```
 
@@ -315,6 +327,8 @@ bee.transfer_create({
    username: 'nome-de-usuario',
    amount: 100,
    coin: 'brl',
+}).then((response) {
+    console.log(response)
 })
 ```
 
