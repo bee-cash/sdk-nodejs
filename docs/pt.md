@@ -287,7 +287,7 @@ bee.charge_client_create({
    address: {
         neighborhood: 'setor balneário',
         street: 'av. nerópolis',
-        zip_code: '74590-510',
+        zip_code: '74590-510'
    },
    phone: {
         number: '(12) 23456-7891'
@@ -326,7 +326,7 @@ result | array | array com os dados da transferência. |
 bee.transfer_create({
    username: 'nome-de-usuario',
    amount: 100,
-   coin: 'brl',
+   coin: 'brl'
 }).then((response) {
     console.log(response)
 })
