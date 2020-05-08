@@ -41,6 +41,10 @@ class Bee {
         return this._execute('charge/boleto/create', array);
     }
 
+    charge_boleto_receive_in_cash(boleto_id) {
+        return this._execute('charge/boleto/receive-in-cash', {boleto_id});
+    }
+
     charge_client_create(array = {}) {
         return this._execute('charge/client/create', array);
     }
