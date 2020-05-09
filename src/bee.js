@@ -37,6 +37,10 @@ class Bee {
         return this._execute('balance', {coin});
     }
 
+    bank_deposit_boleto_create(array) {
+        return this._execute('bank/deposit/boleto/create', array);
+    }
+
     charge_boleto_create(array = {}) {
         return this._execute('charge/boleto/create', array);
     }
