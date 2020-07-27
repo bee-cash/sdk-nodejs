@@ -13,11 +13,11 @@ class Bee {
         }
     }
 
-    async _execute(endpoint, array = {}) {
+    async _execute(endpoint, array = {}, method = 'post') {
         const response = await axios({
             url: endpoint,
             baseURL: this._url,
-            method: 'post',
+            method: method,
             params: array,
             headers: this._headers
         });
@@ -25,44 +25,40 @@ class Bee {
         return await response.data;
     }
 
-    altcoin_address_create(array = {}) {
-        return this._execute('altcoin/address/create', array);
+    altcoin_address(array = {}) {
+        return this._execute('altcoin/address', array);
     }
 
-    altcoin_withdrawal_create(array = {}) {
-        return this._execute('altcoin/withdrawal/create', array);
+    altcoin_withdrawal(array = {}) {
+        return this._execute('altcoin/withdrawal', array);
     }
 
     balance(coin = '') {
-        return this._execute('balance', {coin});
+        return this._execute('balance/'+coin, {}, 'get');
     }
 
-    bank_deposit_boleto_create(array) {
-        return this._execute('bank/deposit/boleto/create', array);
+    bank_deposit_boleto(array) {
+        return this._execute('bank/deposit/boleto', array);
     }
 
-    charge_boleto_create(array = {}) {
-        return this._execute('charge/boleto/create', array);
+    charge_boleto(array = {}) {
+        return this._execute('charge/boleto', array);
     }
 
     charge_boleto_receive_in_cash(boleto_id) {
-        return this._execute('charge/boleto/receive-in-cash', {boleto_id});
+        return this._execute('charge/boleto/'+boleto_id+'/receive-in-cash');
     }
 
-    charge_client_create(array = {}) {
-        return this._execute('charge/client/create', array);
+    charge_client(array = {}) {
+        return this._execute('charge/client', array);
     }
 
-    coin_list() {
-        return this._execute('coin/list');
+    coin(coin = '') {
+        return this._execute('coin/'+coin, {}, 'get');
     }
 
-    coin_info(coin = '') {
-        return this._execute('coin/info', {coin});
-    }
-
-    transfer_create(array = {}) {
-        return this._execute('transfer/create', array);
+    transfer(array = {}) {
+        return this._execute('transfer', array);
     }
 
 }

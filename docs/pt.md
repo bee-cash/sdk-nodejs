@@ -35,7 +35,7 @@ Pronto nossa biblioteca está conectada com a [Bee](https://bee.cash).
 
 Agora vamos conhecer os metódos disponíveis:
 
-## **_altcoin_address_create_**
+## **_altcoin_address_**
 
 Responsável por criar endereços de depósito para altcoins.  
 
@@ -59,7 +59,7 @@ result | array | array com os dados do endereço criado. |
 #### Exemplo:
 
 ```javascript
-bee.altcoin_address_create({
+bee.altcoin_address({
    coin: 'btc',
    label: 'Endereco BTC'
 }).then((response) {
@@ -69,7 +69,7 @@ bee.altcoin_address_create({
 
 &#160;
 
-## **_altcoin_withdrawal_create_**
+## **_altcoin_withdrawal_**
 
 Responsável por realizar saques de altcoins.  
 
@@ -95,7 +95,7 @@ result | array | array com os dados da retirada. |
 #### Exemplo:
 
 ```javascript
-bee.altcoin_withdrawal_create({
+bee.altcoin_withdrawal({
    address: '18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX',
    amount: 0.01,
    coin: 'btc',
@@ -150,7 +150,7 @@ bee.balance().then((response) {
 
 &#160;
 
-## **_bank_deposit_boleto_create_**
+## **_bank_deposit_boleto_**
 
 Responsável por criar um boleto de depósito.  
 Nessa modalidade você pode criar boletos sem precisar cadastrar um cliente, observe que nessa requisição, você sempre será o sacado do boleto. 
@@ -174,9 +174,9 @@ result | array | array com os dados do boleto de depósito criado. |
 #### Exemplo:
 
 ```javascript
-bee.bank_deposit_boleto_create({
+bee.bank_deposit_boleto({
    amount: 59.99,
-   due_at:'2020-04-29',
+   due_at: '2020-04-29',
 })
 ```
 
@@ -236,7 +236,7 @@ bee.coin_info('btc').then((response) {
 
 &#160;
 
-## **_charge_boleto_create_**
+## **_charge_boleto_**
 
 Responsável por criar de cobrança.  
 Geralmente utilizado para que seus clientes façam pagamentos dentro da [Bee](https://bee.cash) e seu sistema seja avisado deste pagamento. 
@@ -247,7 +247,7 @@ Geralmente utilizado para que seus clientes façam pagamentos dentro da [Bee](ht
 |:------|:-----|:-----------:|:----------|
 | coin | string | não | código da moeda na qual a cobrança deve ser gerada, se não enviar, vamos considerar **brl**. |
 | amount | float | sim | valor do boleto. |
-| client_id | int | sim | informe o id do cliente titular da cobrança |
+| client_id | uuid | sim | informe o id do cliente titular da cobrança |
 | due_at | date | sim | data de vecimento do boleto. |
 | notification_url | string | não | url para envio das notificações de depósito referêntes a este boleto. |
 | reference | string | não | informe algo que sirva de referencia pra você. |
@@ -269,9 +269,9 @@ result | array | array com os dados do boleto criado. |
 #### Exemplo:
 
 ```javascript
-bee.charge_boleto_create({
+bee.charge_boleto({
    amount: 59.99,
-   client_id: 5,
+   client_id: '89e1018a-0b16-42b9-9e33-b1e571f248cc',
    due_at: '2020-04-29',
    label: 'Cobrança referente a compra de tenis sport'
 }).then((response) {
@@ -289,7 +289,7 @@ Responsável por marcar o boleto como recebido em dinheiro.
 
 | Campo | Tipo | Obrigatório | Descrição |
 |:------|:-----|:-----------:|:----------|
-| boleto_id | int | sim | id do boleto a ser recebido |
+| boleto_id | uuid | sim | id do boleto a ser recebido |
 
 **Retorno**
 
@@ -306,7 +306,7 @@ bee.charge_boleto_receive_in_cash(boleto_id)
 
 &#160;
 
-## **_charge_client_create_**
+## **_charge_client_**
 
 Responsável por criar um cliente para cobranças.
 
@@ -337,7 +337,7 @@ result | array | array com os dados do cliente criado. |
 #### Exemplo:
 
 ```python
-bee.charge_client_create({
+bee.charge_client({
    name: 'João Silva',
    document: '123.456.789-10',
    email: 'joao_silva@provedor.com',
@@ -356,7 +356,7 @@ bee.charge_client_create({
 
 &#160;
 
-## **_transfer_create_**
+## **_transfer_**
 
 Responsável por tranferir dinheiro para outro usuário.    
 
@@ -380,7 +380,7 @@ result | array | array com os dados da transferência. |
 #### Exemplo:
 
 ```javascript
-bee.transfer_create({
+bee.transfer({
    username: 'nome-de-usuario',
    amount: 100,
    coin: 'brl'
